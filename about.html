@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="images/logo-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="images/logo-icon.png" />
 </head>
 <body>
 
@@ -16,30 +18,14 @@
   <header class="site-header">
     <div class="wrap nav">
       <a href="index.html" class="brand" aria-label="GSM Cleaning Services home">
-        <span class="mark" aria-hidden="true">
-          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="22" cy="22" r="22" fill="#7CB518"/>
-            <g fill="#fff">
-              <circle cx="22" cy="22" r="4.4"/>
-              <ellipse cx="22" cy="11.5" rx="3.4" ry="5.4"/>
-              <ellipse cx="22" cy="32.5" rx="3.4" ry="5.4"/>
-              <ellipse cx="11.5" cy="22" rx="5.4" ry="3.4"/>
-              <ellipse cx="32.5" cy="22" rx="5.4" ry="3.4"/>
-              <ellipse cx="14.5" cy="14.5" rx="4.6" ry="3" transform="rotate(45 14.5 14.5)"/>
-              <ellipse cx="29.5" cy="14.5" rx="4.6" ry="3" transform="rotate(-45 29.5 14.5)"/>
-              <ellipse cx="14.5" cy="29.5" rx="4.6" ry="3" transform="rotate(-45 14.5 29.5)"/>
-              <ellipse cx="29.5" cy="29.5" rx="4.6" ry="3" transform="rotate(45 29.5 29.5)"/>
-            </g>
-          </svg>
-        </span>
-        <span><span class="brand-text">g<b>Sm</b></span><span class="brand-sub">Cleaning Services</span></span>
+        <img src="images/gsm-logo.png" alt="GSM Cleaning Services logo">
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
-        <a href="contact.html" class="btn btn-primary nav-cta">Get a quote</a>
+        <a href="contact.html#quote" class="btn btn-primary nav-cta">Get a quote</a>
       </nav>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
     </div>
@@ -62,7 +48,7 @@
         <h2>A reputation built over the years</h2>
         <p class="lead">We were established to provide professional, world-class, modern cleaning services to offices and residences. Staying dynamic and relevant, we also deliver fumigation and gardening.</p>
         <p>In everything we do, we aim to uphold our reputation for acting responsibly, with integrity, while respecting the laws, regulations, traditions and cultures of the nation in which we operate. Our board holds the highest possible standard of professionalism and ethical conduct — codes we maintain to protect our customer and corporate relationships.</p>
-        <a href="contact.html" class="btn btn-primary" style="margin-top:.6rem">Work with us
+        <a href="contact.html#quote" class="btn btn-primary" style="margin-top:.6rem">Work with us
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -156,15 +142,11 @@
         <span class="eyebrow" style="color:var(--green-bright)">Our people</span>
         <h2 style="color:#fff">Housekeepers &amp; gardeners you can trust</h2>
         <p style="color:rgba(255,255,255,.8)">We recruit Vocational Education Training Authority (VETA) graduates and subject them to a thorough vetting process and intensive interviews. Every team member also completes an internship before formal recruitment — so the people in your space are skilled, screened and dependable.</p>
-        <a href="contact.html" class="btn btn-primary" style="margin-top:.4rem">Hire our team</a>
+        <a href="contact.html#quote" class="btn btn-primary" style="margin-top:.4rem">Hire our team</a>
       </div>
       <div class="reveal" data-delay="120">
-        <div class="hero-photo" style="aspect-ratio:4/3">
-          <!-- Replace with a team photo: <img src="images/team.jpg" alt="GSM team"> -->
-          <div class="placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg>
-            <small>Add a team photo to <code>images/team.jpg</code></small>
-          </div>
+        <div class="hero-photo team-photo">
+          <img src="images/team.jpeg" alt="GSM team">
         </div>
       </div>
     </div>
@@ -198,7 +180,7 @@
         <h2>Let&rsquo;s keep your space spotless</h2>
         <p>A clean office inspires trust and confidence in your business. Partner with a team that takes pride in every detail.</p>
         <div class="hero-actions">
-          <a href="contact.html" class="btn btn-light">Get your free quote</a>
+          <a href="contact.html#quote" class="btn btn-light">Get your free quote</a>
           <a href="services.html" class="btn btn-outline-light">See our services</a>
         </div>
       </div>
@@ -210,11 +192,8 @@
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <a href="index.html" class="brand">
-            <span class="mark" aria-hidden="true">
-              <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="22" fill="#7CB518"/><g fill="#fff"><circle cx="22" cy="22" r="4.4"/><ellipse cx="22" cy="11.5" rx="3.4" ry="5.4"/><ellipse cx="22" cy="32.5" rx="3.4" ry="5.4"/><ellipse cx="11.5" cy="22" rx="5.4" ry="3.4"/><ellipse cx="32.5" cy="22" rx="5.4" ry="3.4"/></g></svg>
-            </span>
-            <span><span class="brand-text" style="color:#fff">g<b>Sm</b></span><span class="brand-sub">Cleaning Services</span></span>
+          <a href="index.html" class="brand footer-logo">
+            <img src="images/footer_logo.png" alt="GSM Cleaning Services logo">
           </a>
           <p class="f-about">Professional, world-class cleaning, fumigation and gardening for offices and homes across Tanzania — built on integrity since 2011.</p>
           <div class="f-social">
@@ -239,8 +218,9 @@
             <li><a href="about.html">About us</a></li>
             <li><a href="about.html#values">Vision &amp; mission</a></li>
             <li><a href="about.html#certs">Certifications</a></li>
+            <li><a href="privacy.html">Privacy policy</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="contact.html">Get a quote</a></li>
+            <li><a href="contact.html#quote">Get a quote</a></li>
           </ul>
         </div>
         <div>
@@ -263,6 +243,11 @@
   <a class="whatsapp" href="https://wa.me/255754710298" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.7.8-2.7-.2-.3A8 8 0 1 1 12 20zm4.5-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.7.1.2 1.9 3 4.7 4.2 1.8.8 2.4.8 3.3.7.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.2-.2-.4-.2z"/></svg>
   </a>
+
+  <div class="cookie-banner" hidden>
+    <p>We use cookies to improve your experience and analyse site traffic. By continuing, you accept our cookie policy. <a href="privacy.html">Read our privacy policy</a>.</p>
+    <button type="button" class="cookie-accept">Accept cookies</button>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

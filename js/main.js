@@ -102,4 +102,38 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---- 7. Footer year ---- */
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
+
+  /* ---- 8. Cookie consent banner ---- */
+  const cookieBanner = document.querySelector('.cookie-banner');
+  const acceptButton = document.querySelector('.cookie-accept');
+  const cookieName = 'gsmCookiesAccepted';
+
+  const getCookie = (name) => document.cookie.split('; ').reduce((acc, pair) => {
+    const [k, v] = pair.split('=');
+    return k === name ? decodeURIComponent(v) : acc;
+  }, '');
+
+  const setCookie = (name, value, days) => {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
+  };
+
+  const showCookieBanner = () => {
+    if (cookieBanner) cookieBanner.hidden = false;
+  };
+
+  const hideCookieBanner = () => {
+    if (cookieBanner) cookieBanner.hidden = true;
+  };
+
+  if (cookieBanner && acceptButton) {
+    if (getCookie(cookieName) !== 'true') {
+      showCookieBanner();
+    }
+
+    acceptButton.addEventListener('click', () => {
+      setCookie(cookieName, 'true', 365);
+      hideCookieBanner();
+    });
+  }
 });
