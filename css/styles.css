@@ -1049,3 +1049,9 @@ form.contact-form {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
 }
+/* Cookie banner — the hidden attribute must win over display:flex */
+.cookie-banner[hidden] { display: none !important; }
+
+/* Make sure it sits above the WhatsApp button and stays interactive */
+.cookie-banner { z-index: 999; pointer-events: auto; }
+.cookie-banner .cookie-accept { cursor: pointer; }

@@ -103,7 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  /* ---- 8. Cookie consent banner ---- */
+  /* ---- 8. Cookie consent banner ----
+     Remembers the visitor's choice in BOTH a cookie and localStorage.
+     Either one counts as "accepted", so the banner stays dismissed even
+     if the browser blocks one of the two stores. */
   const cookieBanner = document.querySelector('.cookie-banner');
   const acceptButton = document.querySelector('.cookie-accept');
   const cookieName = 'gsmCookiesAccepted';
@@ -118,6 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
   };
 
+  // localStorage throws in private mode / when storage is blocked
+  const getStored = () => {
+    try { return localStorage.getItem(cookieName); } catch (e) { return null; }
+  };
+
+  const setStored = (value) => {
+    try { localStorage.setItem(cookieName, value); } catch (e) { /* ignore */ }
+  };
+
   const showCookieBanner = () => {
     if (cookieBanner) cookieBanner.hidden = false;
   };
@@ -127,12 +139,13 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (cookieBanner && acceptButton) {
-    if (getCookie(cookieName) !== 'true') {
-      showCookieBanner();
-    }
+    const accepted = getCookie(cookieName) === 'true' || getStored() === 'yes';
+
+    if (!accepted) showCookieBanner();
 
     acceptButton.addEventListener('click', () => {
       setCookie(cookieName, 'true', 365);
+      setStored('yes');
       hideCookieBanner();
     });
   }
