@@ -1081,7 +1081,13 @@ form.contact-form {
   .stats .wrap { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .field-row { grid-template-columns: 1fr; }
-  .hero-float { left: 8px; }
+  .hero-float {
+    position: static;
+    width: 100%;
+    max-width: none;
+    margin-top: .85rem;
+    box-shadow: var(--shadow-sm);
+  }
 }
 
 .cookie-banner {
