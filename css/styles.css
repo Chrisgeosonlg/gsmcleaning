@@ -1049,6 +1049,13 @@ form.contact-form {
 @media (max-width: 940px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-visual { max-width: 460px; margin-inline: auto; order: -1; }
+  .hero-float {
+    position: static;
+    width: 100%;
+    max-width: none;
+    margin-top: .85rem;
+    box-shadow: var(--shadow-sm);
+  }
   .split, .contact-grid, .svc-block { grid-template-columns: 1fr; }
   .svc-block:nth-child(even) .svc-text { order: 0; }
   .stats .wrap { grid-template-columns: repeat(2, 1fr); }
@@ -1081,13 +1088,6 @@ form.contact-form {
   .stats .wrap { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .field-row { grid-template-columns: 1fr; }
-  .hero-float {
-    position: static;
-    width: 100%;
-    max-width: none;
-    margin-top: .85rem;
-    box-shadow: var(--shadow-sm);
-  }
 }
 
 .cookie-banner {
