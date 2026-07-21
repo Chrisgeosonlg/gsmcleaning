@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- Branded page preloader ---- */
   const preloader = document.querySelector('.site-preloader');
-  const preloaderKey = 'gsmPreloaderShown';
+  const preloaderKey = 'gsmHomepagePreloaderShown';
   let hasShownPreloader = false;
 
   try {
-    hasShownPreloader = sessionStorage.getItem(preloaderKey) === 'true';
-  } catch (e) { /* sessionStorage may be blocked */ }
+    hasShownPreloader = localStorage.getItem(preloaderKey) === 'true';
+  } catch (e) { /* localStorage may be blocked */ }
 
   const finishLoading = () => {
     if (!preloader || preloader.classList.contains('is-leaving')) return;
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       preloader.setAttribute('aria-hidden', 'true');
     } else {
       document.body.classList.add('is-loading');
-      try { sessionStorage.setItem(preloaderKey, 'true'); } catch (e) { /* ignore */ }
+      try { localStorage.setItem(preloaderKey, 'true'); } catch (e) { /* ignore */ }
       if (document.readyState === 'complete') finishLoading();
       else window.addEventListener('load', finishLoading, { once: true });
       window.setTimeout(finishLoading, 2800);
@@ -135,7 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
      if the browser blocks one of the two stores. */
   const cookieBanner = document.querySelector('.cookie-banner');
   const acceptButton = document.querySelector('.cookie-accept');
-  const cookieName = 'gsmCookiesAccepted';
+  // Version the key whenever the consent notice materially changes. This
+  // makes the current notice appear once even if an older version was saved.
+  const cookieName = 'gsmCookiesAcceptedV2';
 
   const getCookie = (name) => document.cookie.split('; ').reduce((acc, pair) => {
     const [k, v] = pair.split('=');
