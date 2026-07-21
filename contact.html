@@ -14,6 +14,10 @@
 </head>
 <body>
 
+  <div class="site-preloader" role="status" aria-live="polite" aria-label="Loading GSM Cleaning Services">
+    <div class="preloader-inner"><div class="preloader-mark"><span class="preloader-ring" aria-hidden="true"></span><span class="preloader-logo"><img src="images/gsm-logo.png" alt=""></span><span class="preloader-sparkle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c.7 6.3 4.7 10.3 11 11-6.3.7-10.3 4.7-11 11C11.3 16.7 7.3 12.7 1 12 7.3 11.3 11.3 7.3 12 1Z"/></svg></span></div><p class="preloader-title">GSM Cleaning Services</p><p class="preloader-copy">Fresh spaces loading</p><div class="preloader-track" aria-hidden="true"><span class="preloader-progress"></span></div></div>
+  </div>
+
   <!-- ============ HEADER ============ -->
   <header class="site-header">
     <div class="wrap nav">
@@ -77,7 +81,11 @@
 
       <!-- Form — target of every "Get a quote" / "Contact us" CTA on the site -->
       <div class="reveal" id="quote" data-delay="120" style="scroll-margin-top:110px">
-        <form class="contact-form" novalidate>
+        <form class="contact-form" action="https://formsubmit.co/info@gsmcleaning.co.tz" method="POST">
+          <input type="hidden" name="_subject" value="New website enquiry - GSM Cleaning Services" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="https://www.gsmcleaning.co.tz/contact.html?submitted=true#quote" />
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
           <div class="form-success" role="status">Thank you! Your message has been received — we&rsquo;ll get back to you shortly.</div>
 
           <div class="field-row">
@@ -119,7 +127,7 @@
             Send message
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
           </button>
-          <p class="form-note">This is a front-end demo form. Connect it to your email service (Formspree, EmailJS or your backend) in <code>js/main.js</code> to receive real submissions.</p>
+          <p class="form-note">Your enquiry will be sent directly to info@gsmcleaning.co.tz.</p>
         </form>
       </div>
     </div>

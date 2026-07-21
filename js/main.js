@@ -6,6 +6,38 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---- Branded page preloader ---- */
+  const preloader = document.querySelector('.site-preloader');
+  const preloaderKey = 'gsmPreloaderShown';
+  let hasShownPreloader = false;
+
+  try {
+    hasShownPreloader = sessionStorage.getItem(preloaderKey) === 'true';
+  } catch (e) { /* sessionStorage may be blocked */ }
+
+  const finishLoading = () => {
+    if (!preloader || preloader.classList.contains('is-leaving')) return;
+    preloader.classList.add('is-leaving');
+    window.setTimeout(() => {
+      preloader.classList.add('is-hidden');
+      document.body.classList.remove('is-loading');
+      preloader.setAttribute('aria-hidden', 'true');
+    }, 900);
+  };
+
+  if (preloader) {
+    if (hasShownPreloader) {
+      preloader.classList.add('is-hidden');
+      preloader.setAttribute('aria-hidden', 'true');
+    } else {
+      document.body.classList.add('is-loading');
+      try { sessionStorage.setItem(preloaderKey, 'true'); } catch (e) { /* ignore */ }
+      if (document.readyState === 'complete') finishLoading();
+      else window.addEventListener('load', finishLoading, { once: true });
+      window.setTimeout(finishLoading, 2800);
+    }
+  }
+
   /* ---- 1. Mobile navigation toggle ---- */
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
@@ -82,21 +114,15 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(c => cio.observe(c));
   }
 
-  /* ---- 6. Contact form (front-end demo handler) ----
-     Replace the body of this handler with a real submit
-     (e.g. Formspree, EmailJS, or your own backend endpoint). */
+  /* ---- 6. Show confirmation after a successful email submission ---- */
   const form = document.querySelector('.contact-form');
   if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('submitted') === 'true') {
       const success = form.querySelector('.form-success');
-      if (success) {
-        success.classList.add('show');
-        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-      form.reset();
-      // TODO: send data to your email service here.
-    });
+      if (success) success.classList.add('show');
+      window.history.replaceState({}, document.title, `${window.location.pathname}#quote`);
+    }
   }
 
   /* ---- 7. Footer year ---- */
