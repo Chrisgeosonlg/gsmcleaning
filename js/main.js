@@ -6,6 +6,11 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---- Prevent the image context menu site-wide ---- */
+  document.addEventListener('contextmenu', (event) => {
+    if (event.target.closest('img, picture, svg')) event.preventDefault();
+  });
+
   /* ---- Branded page preloader ---- */
   const preloader = document.querySelector('.site-preloader');
   const preloaderKey = 'gsmHomepagePreloaderShown';
