@@ -529,6 +529,52 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .logo-row span:hover { opacity: 1; color: var(--green); }
 
+/* Dark trust bar with a single scrolling line of clients */
+.trustbar--dark { background: #0E2A47; border-bottom: 0; }
+.trustbar--dark .wrap { padding: 2.2rem 0 2.4rem; }
+.trustbar--dark p { color: rgba(255,255,255,.55); margin-bottom: 1.4rem; }
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 70s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.logo-group { display: flex; align-items: center; flex-shrink: 0; }
+.logo-group span {
+  position: relative;
+  padding: 0 1.8rem;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,.6);
+  transition: color .25s;
+}
+.logo-group span::after {
+  content: "";
+  position: absolute;
+  right: -3px; top: 50%;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  opacity: .55;
+  transform: translateY(-50%);
+}
+.logo-group span:hover { color: #fff; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* No motion: fall back to a calm, centred wrap of a single set */
+@media (prefers-reduced-motion: reduce) {
+  .marquee { -webkit-mask-image: none; mask-image: none; }
+  .marquee-track, .logo-group { width: auto; flex-wrap: wrap; justify-content: center; row-gap: .9rem; }
+  .logo-group[aria-hidden="true"] { display: none; }
+}
+
 /* ---------- 9. Services cards ------------------------------ */
 .cards {
   display: grid;
